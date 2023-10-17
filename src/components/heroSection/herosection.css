@@ -1,0 +1,9 @@
+.image{
+    margin: auto;
+    height: 600px;
+    object-fit: cover;
+    background-color: black;
+    padding: 30px;
+    width: 100%;
+    /* height: fit-content; */
+}
