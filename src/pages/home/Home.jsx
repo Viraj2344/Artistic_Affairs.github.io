@@ -9,17 +9,24 @@ import Testimonial from '../../components/testimonial/Testimonial'
 import { Link } from 'react-router-dom'
 import Parallax from '../../components/parallax/Parallax'
 import ImageGrid from '../../components/imagegrid/Imagegrid'
-
+import SingleImage from '../../components/singleImage/SingleImage'
+import HelpSection from '../../components/help/Help'
+import ProductSpecificationsTable from '../../components/productSpecifications/ProductSpecifications'
 
 function Home() {
   return (
     <Layout>
       <HeroSection />
+   
       <ProductCard />
       {/* <Track /> */}
       <Parallax />
       <ImageGrid />
-      <Testimonial />
+     <SingleImage />
+      <ProductSpecificationsTable />
+      <HelpSection />
+      
+      {/* <Testimonial /> */}
     </Layout>
   )
 }

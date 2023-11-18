@@ -3,14 +3,14 @@ import React from 'react';
 const ImageGrid = () => {
   // You can replace these image URLs and links with your own data.
   const images = [
-    { src: 'https://scontent.cdninstagram.com/v/t39.30808-6/376580618_17973549083578311_4034563242746586512_n.jpg?stp=dst-jpg_e15&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMzQ5eDE2ODcuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=103&_nc_ohc=4Y6GjvX2BkQAX-nbNXh&edm=APs17CUAAAAA&ccb=7-5&ig_cache_key=MzE4Nzg0OTYwNzUxMjE4NjMwMg%3D%3D.2-ccb7-5&oh=00_AfCEI43gTeWrXH1bkp-0VwoUPxdfJvW8TEoMo-8YiDBh4Q&oe=65337C77&_nc_sid=10d13b', link: 'https://example.com/link1' },
-    { src: 'https://scontent.cdninstagram.com/v/t39.30808-6/376580618_17973549083578311_4034563242746586512_n.jpg?stp=dst-jpg_e15&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMzQ5eDE2ODcuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=103&_nc_ohc=4Y6GjvX2BkQAX-nbNXh&edm=APs17CUAAAAA&ccb=7-5&ig_cache_key=MzE4Nzg0OTYwNzUxMjE4NjMwMg%3D%3D.2-ccb7-5&oh=00_AfCEI43gTeWrXH1bkp-0VwoUPxdfJvW8TEoMo-8YiDBh4Q&oe=65337C77&_nc_sid=10d13b', link: 'https://example.com/link2' },
-    { src: 'https://scontent.cdninstagram.com/v/t39.30808-6/376580618_17973549083578311_4034563242746586512_n.jpg?stp=dst-jpg_e15&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMzQ5eDE2ODcuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=103&_nc_ohc=4Y6GjvX2BkQAX-nbNXh&edm=APs17CUAAAAA&ccb=7-5&ig_cache_key=MzE4Nzg0OTYwNzUxMjE4NjMwMg%3D%3D.2-ccb7-5&oh=00_AfCEI43gTeWrXH1bkp-0VwoUPxdfJvW8TEoMo-8YiDBh4Q&oe=65337C77&_nc_sid=10d13b', link: 'https://example.com/link3' },
-    { src: 'https://scontent.cdninstagram.com/v/t39.30808-6/376580618_17973549083578311_4034563242746586512_n.jpg?stp=dst-jpg_e15&efg=eyJ2ZW5jb2RlX3RhZyI6ImltYWdlX3VybGdlbi4xMzQ5eDE2ODcuc2RyIn0&_nc_ht=scontent.cdninstagram.com&_nc_cat=103&_nc_ohc=4Y6GjvX2BkQAX-nbNXh&edm=APs17CUAAAAA&ccb=7-5&ig_cache_key=MzE4Nzg0OTYwNzUxMjE4NjMwMg%3D%3D.2-ccb7-5&oh=00_AfCEI43gTeWrXH1bkp-0VwoUPxdfJvW8TEoMo-8YiDBh4Q&oe=65337C77&_nc_sid=10d13b', link: 'https://example.com/link4' },
+    { src: 'https://ktusu.in/cdn/shop/files/soft-tpu-protective-inner-microfiber-cloth-phone-back-case-cover-for-apple-iphone-cases-covers-30219788091492.jpg?v=1697025024', link: 'https://example.com/link1' },
+    { src: 'https://www.printbebo.in/wp-content/uploads/2022/04/151-You-Are-My-Pillow-Cute-Couple-Phone-Case.jpg', link: 'https://example.com/link2' },
+    { src: 'https://i.pinimg.com/736x/f4/68/b8/f468b87def23dd7e25c6ea35dbcccb2b.jpg', link: 'https://example.com/link3' },
+    { src: 'https://i.etsystatic.com/15320292/r/il/3945ab/3481193322/il_570xN.3481193322_4ddl.jpg', link: 'https://example.com/link4' },
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 p-4">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 p-7">
       {images.map((image, index) => (
         <a
           key={index}

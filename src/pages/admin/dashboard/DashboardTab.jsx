@@ -172,17 +172,22 @@ function DashboardTab() {
                                                 Name
                                             </th>
                                             <th scope="col" className="px-6 py-3">
+                                                Phone Model
+                                            </th>
+                                            <th scope="col" className="px-6 py-3">
                                                 Address
                                             </th>
                                             <th scope="col" className="px-6 py-3">
                                                 Pincode
                                             </th>
+                                            
                                             <th scope="col" className="px-6 py-3">
                                                 Phone Number
                                             </th>
                                             <th scope="col" className="px-6 py-3">
                                                 Email
                                             </th>
+                                             
                                             <th scope="col" className="px-6 py-3">
                                                 Date
                                             </th>
@@ -212,6 +217,9 @@ function DashboardTab() {
 
                                             <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
                                                 {allorder.addressInfo.name}
+                                            </td>
+                                            <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                {allorder.addressInfo.phoneModel}
                                             </td>
                                             <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
                                                 {allorder.addressInfo.address}
@@ -263,7 +271,7 @@ function DashboardTab() {
                                         </tr>
                                     </thead>
                                    {user.map((item,index)=>{
-                                    const {name,uid,email,date} = item;
+                                    const {name,uid,email,date,phoneModel} = item;
                                     return(
                                         <tbody>
                                         <tr className="bg-gray-50 border-b  dark:border-gray-700" style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
@@ -272,6 +280,9 @@ function DashboardTab() {
                                             </td>
                                             <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
                                                 {name}
+                                            </td>
+                                            <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
+                                                {phoneModel}
                                             </td>
                                             <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
                                                 {email}

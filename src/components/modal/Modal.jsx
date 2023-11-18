@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
-export default function Modal({ name, address, pincode, phoneNumber, setName, setAddress, setPincode, setPhoneNumber, buyNow }) {
+export default function Modal({ name,model, address, pincode,phoneModel, phoneNumber, setName, setAddress, setPincode,  setPhoneModel, setPhoneNumber, buyNow }) {
     let [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
@@ -62,6 +62,12 @@ export default function Modal({ name, address, pincode, phoneNumber, setName, se
                                                             <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900">Enter Full Name</label>
                                                             <input value={name} onChange={(e)=>setName(e.target.value)} type="name" name="name" id="name" className=" border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100" required />
                                                         </div>
+                                                        <div>
+                                                            <label htmlFor="text" className="block mb-2 text-sm font-medium text-gray-900">Enter Phone Model</label>
+                                                            <input value={phoneModel} onChange={(e)=>setPhoneModel(e.target.value)} type="text" name="phoneModel" id="phoneModel" className=" border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100" required />
+                                                        </div>
+                                             
+       
                                                         <div>
                                                             <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Enter Full Address</label>
                                                             <input value={address} onChange={(e)=>setAddress(e.target.value)} type="text" name="address" id="address" className=" border outline-0 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-100" required />
