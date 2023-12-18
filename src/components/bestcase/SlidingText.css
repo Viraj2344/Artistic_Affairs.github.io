@@ -1,0 +1,51 @@
+/* Common styles */
+.sliding-text-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin-top: 20px; /* Adjust the margin from the top */
+    margin-bottom: 20px; /* Adjust the margin from the bottom */
+  }
+  
+  .sliding-text span {
+    font-size: 6rem; /* Adjust the font size as needed */
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block; /* Prevents unnecessary whitespace around inline elements */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  
+  /* Desktop styles */
+  @media (min-width: 768px) {
+    .sliding-text {
+      white-space: nowrap;
+      animation: slideTextDesktop 12s linear infinite; /* Adjust the duration for desktop */
+    }
+  
+    @keyframes slideTextDesktop {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  }
+  
+  /* Phone styles */
+  @media (max-width: 767px) {
+    .sliding-text {
+      white-space: nowrap;
+      animation: slideTextPhone 5s linear infinite; /* Adjust the duration for phones */
+    }
+  
+    @keyframes slideTextPhone {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  }
+  

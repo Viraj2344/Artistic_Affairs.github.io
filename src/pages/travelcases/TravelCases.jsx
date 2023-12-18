@@ -1,24 +1,33 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import Filter from '../../components/filter/Filter';
 import Layout from '../../components/layout/Layout';
 import myContext from '../../context/data/myContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 
-function AllProducts() {
+function TravelCases() {
   const context = useContext(myContext);
   const {
     mode,
     product,
     searchkey,
+    setSearchkey,
     filterType,
     setFilterType,
+    filterPrice,
+    setFilterPrice,
   } = context;
 
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
+  console.log(cartItems);
 
-  const [selectedPriceIndex, setSelectedPriceIndex] = useState(0);
+  const constantCategory = "Travel Cases"; // Set your constant category here
+
+  const Filternew = (productList, category) => {
+    return category ? productList.filter((obj) => obj.category.toLowerCase() === category.toLowerCase()) : productList;
+  };
 
   const addCart = (product) => {
     dispatch(addToCart(product));
@@ -33,55 +42,23 @@ function AllProducts() {
     window.scrollTo(0, 0);
   }, []);
 
-  // Manually specify the price ranges
-  const priceRanges = [1000, 800, 400, 200]; // Add more ranges as needed
-
-  const handlePriceRangeChange = (event) => {
-    const index = event.target.value;
-    setSelectedPriceIndex(index);
-  };
-
   return (
     <Layout>
+
       <section className={`text-gray-600 body-font ${mode === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
         <div className="container px-5 py-8 md:py-16 mx-auto">
           <div className="lg:w-1/2 w-auto mb-6 lg:mb-10">
             <h1
               className={`sm:text-3xl text-2xl font-medium title-font mb-2 ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}
             >
-              Our Latest Collection
+              TRAVEL CASES
             </h1>
             <div className={`h-1 w-20 ${mode === 'dark' ? 'bg-pink-600' : 'bg-pink-300'} rounded`}></div>
           </div>
 
-          {/* Price Filter Dropdown */}
-          <div className="flex items-center mb-4">
-            <label className="mr-2 text-gray-700">Select Price Range:</label>
-            <select
-              value={selectedPriceIndex}
-              onChange={handlePriceRangeChange}
-              className="border p-2"
-            >
-              {priceRanges.map((range, index) => (
-                <option key={index} value={index}>
-                  ₹{range}
-                </option>
-              ))}
-            </select>
-          </div>
-
           <div className="flex flex-wrap -m-4">
-            {product
-              .filter((obj) => obj.title.toLowerCase().includes(searchkey))
-              .filter((obj) => obj.category.toLowerCase().includes(filterType))
-              .filter((obj) => {
-                // Check if discount price is within the selected range
-                const discountPrice = parseFloat(obj.discountprice);
-                const selectedRange = parseFloat(priceRanges[selectedPriceIndex]);
-                return discountPrice <= selectedRange;
-              })
-              .map((item, index) => {
-                const { title, price, imageUrl, id, category, discountprice } = item;
+             {Filternew(product, constantCategory).map((item, index) => {
+              const { title, price, imageUrl, id, category, discountprice } = item;
                 return (
                   <div
                     key={index}
@@ -103,8 +80,8 @@ function AllProducts() {
                           {title}
                         </h2>
                         <div className='flex flex-row'>
-                          <s className={`text-gray-600 mb-2`}>₹{price}</s>
-                          <p className={`text-gray-600 mb-2 ml-2`}>₹{discountprice}</p>
+                        <s className={`text-gray-600 mb-2`}>₹{price}</s>
+                        <p className={`text-gray-600 mb-2 ml-2`}>₹{discountprice}</p>
                         </div>
                         <p className={`text-gray-600 mb-2`}>{category}</p>
                         {/* Additional information or actions can be added here */}
@@ -120,4 +97,4 @@ function AllProducts() {
   );
 }
 
-export default AllProducts;
+export default TravelCases;

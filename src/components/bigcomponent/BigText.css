@@ -1,0 +1,35 @@
+.big-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 4rem;
+  }
+  
+  .big-text span {
+    font-size: 12rem; /* Adjust the font size for the big text as needed */
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    background: -webkit-linear-gradient(#ffffff, #00000038);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+  }
+  
+  .small-text span {
+    font-size: 2rem; /* Adjust the font size for the small text as needed */
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  @media (max-width: 767px){
+    .big-text span {
+      font-size: 8rem;
+    
+      }
+      .small-text span {
+        font-size: 1rem;
+      }
+  }
+  

@@ -12,19 +12,25 @@ import ImageGrid from '../../components/imagegrid/Imagegrid'
 import SingleImage from '../../components/singleImage/SingleImage'
 import HelpSection from '../../components/help/Help'
 import ProductSpecificationsTable from '../../components/productSpecifications/ProductSpecifications'
+import SlidingText from '../../components/bestcase/Bestcase'
+import BigText from '../../components/bigcomponent/Bigcomponent'
+import SareeCases from '../sareecases/SareeCases'
 
 function Home() {
   return (
     <Layout>
+      
       <HeroSection />
-   
+      <SlidingText />
+      <ImageGrid />
       <ProductCard />
       {/* <Track /> */}
       <Parallax />
-      <ImageGrid />
+     <BigText />
      <SingleImage />
       <ProductSpecificationsTable />
       <HelpSection />
+
       
       {/* <Testimonial /> */}
     </Layout>

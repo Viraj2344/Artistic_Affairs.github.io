@@ -20,6 +20,19 @@ import UpdateProduct from './pages/admin/page/UpdateProduct';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Allproducts from './pages/allproducts/Allproducts';
+import SareeCases from './pages/sareecases/SareeCases';
+import CyberPunk from './pages/cyberpunkcases/CyberPunk';
+import AbstractCases from './pages/abstractcases/AbstractCases';
+import TravelCases from './pages/travelcases/TravelCases';
+import HippieTrippieCases from './pages/hippietrippiecases/HippieTrippieCases';
+import AnimeCases from './pages/animecases/AnimeCases';
+import CricketCases from './pages/cricketcases/CricketCases';
+import FootballCases from './pages/footballcases/FootballCases';
+import MusicCases from './pages/musiccases/MusicCases';
+import CarsBikesCases from './pages/carsbikescases/CarsBikesCases';
+import GamingCases from './pages/gamingcases/GamingCases';
+import CustomCases from './pages/customcases/CustomCases';
+
 
 
 function App() {
@@ -29,6 +42,19 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/allproducts" element={<Allproducts />} />
+          <Route path="/sareecases" element={<SareeCases />} />
+          <Route path="/cyberpunkcases" element={<CyberPunk />} />
+          <Route path="/abstractcases" element={<AbstractCases />} />
+          <Route path="/travelcases" element={<TravelCases />} />
+          <Route path="/hippietrippiecases" element={<HippieTrippieCases />} />
+          <Route path="/animecases" element={<AnimeCases />} />
+          <Route path='/cricketcases' element={<CricketCases />}/>
+          <Route path='/footballcases' element={<FootballCases />}/>
+          <Route path='/musiccases' element={<MusicCases />}/>
+          <Route path='/carsbikescases' element={<CarsBikesCases />}/>
+          <Route path='/customcases' element={<CustomCases/>}/> 
+          <Route path='/gamingcases' element={<GamingCases />}/>
+          
           <Route path="/order" element={
             <ProtectedRoute>
               <Order />

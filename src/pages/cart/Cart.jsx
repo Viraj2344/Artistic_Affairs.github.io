@@ -11,6 +11,7 @@ import { fireDB } from '../../fireabase/FirebaseConfig';
 
 
 function Cart() {
+
   
   const context = useContext(myContext);
   const { mode } = context;
@@ -34,7 +35,7 @@ function Cart() {
   useEffect(() => {
     let temp = 0;
     cartItems.forEach((cartItem) => {
-      temp = temp + parseInt(cartItem.price);
+      temp = temp + parseInt(cartItem.discountprice);
     });
     setTotalAmount(temp);
   }, [cartItems]);
@@ -47,7 +48,7 @@ function Cart() {
   const [address, setAddress] = useState('');
   const [pincode, setPincode] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [phoneModel, setPhoneModel] = useState(''); // Add phoneModel state
+
 
   const handleBuyNow = async () => {
     // Check if the user is logged in
@@ -79,7 +80,7 @@ function Cart() {
             address,
             pincode,
             phoneNumber,
-            phoneModel, // Include phoneModel in addressInfo
+      
             date: new Date().toLocaleString('en-US', {
               month: 'short',
               day: '2-digit',
@@ -122,7 +123,7 @@ function Cart() {
         <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
           <div className="rounded-lg md:w-2/3 ">
             {cartItems.map((item, index) => {
-              const { title, price, description, imageUrl } = item;
+              const { title, price,discountprice, description, imageUrl } = item;
               return (
                 <div className="justify-between mb-6 rounded-lg border drop-shadow-xl bg-white p-6 sm:flex sm:justify-start" style={{ backgroundColor: mode === 'dark' ? 'rgb(32 33 34)' : '', color: mode === 'dark' ? 'white' : '' }} key={index}>
                   <img src={imageUrl} alt="product-image" className="w-full rounded-lg sm:w-40" />
@@ -130,7 +131,7 @@ function Cart() {
                     <div className="mt-5 sm:mt-0">
                       <h2 className="text-lg font-bold text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>{title}</h2>
                       <h2 className="text-sm text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>{description}</h2>
-                      <p className="mt-1 text-xs font-semibold text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{price}</p>
+                      <p className="mt-1 text-xs font-semibold text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{discountprice}</p>
                     </div>
                     <div onClick={() => deleteCart(item)} className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -160,18 +161,17 @@ function Cart() {
               </div>
             </div>
             <Modal
-            name={name}
-            address={address}
-            pincode={pincode}
-            phoneNumber={phoneNumber}
-            phoneModel={phoneModel} // Pass phoneModel to Modal
-            setName={setName}
-            setAddress={setAddress}
-            setPincode={setPincode}
-            setPhoneNumber={setPhoneNumber}
-            setPhoneModel={setPhoneModel} // Pass setPhoneModel to Modal
-            buyNow={handleBuyNow}
-            />
+        
+        name={name}
+        address={address}
+        pincode={pincode}
+        phoneNumber={phoneNumber}
+        setName={setName}
+        setAddress={setAddress}
+        setPincode={setPincode}
+        setPhoneNumber={setPhoneNumber}
+        buyNow={handleBuyNow}
+      />
           </div>
         </div>
       </div>

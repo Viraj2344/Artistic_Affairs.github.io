@@ -8,7 +8,7 @@ const Parallax = () => {
     <div className="relative  overflow-hidden">
       <div className="parallax-container">
         <img
-          src="./src/assets/Untitled design (25).png"
+          src="./src/assets/Untitled.png"
           alt="Parallax Image"
           className="parallax-image"
         />

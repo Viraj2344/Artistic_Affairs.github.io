@@ -25,7 +25,7 @@ function Filter() {
     let newFilteredProducts = [...product];
 
     if (filterType !== '') {
-      newFilteredProducts = newFilteredProducts.filter(item => item.category === filterType);
+      newFilteredProducts = newFilteredProducts.filter(item => item.category.toLowerCase() === filterType.toLowerCase());
     }
 
     if (filterPrice !== '') {
