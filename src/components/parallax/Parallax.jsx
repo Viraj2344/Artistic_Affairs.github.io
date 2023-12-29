@@ -1,20 +1,19 @@
-// src/components/Parallax.js
-
 import React from 'react';
-import './parallax.css';
+import './parallax.css'; // Create a CSS file for styling
 
-const Parallax = () => {
+function Parallax({ imageUrl }) {
   return (
-    <div className="relative  overflow-hidden">
-      <div className="parallax-container">
+    <section className="single-image-container">
+      <div className="image-wrapper">
+    
         <img
-          src="./src/assets/Untitled.png"
-          alt="Parallax Image"
-          className="parallax-image"
+          className="centered-imag custom-cursor "
+          src={'https://coveritup.com/cdn/shop/files/phone-interface-glass-case.jpg?v=1701368791&width=1600'}
+          alt="Centered Image"
         />
       </div>
-    </div>
+    </section>
   );
-};
+}
 
 export default Parallax;

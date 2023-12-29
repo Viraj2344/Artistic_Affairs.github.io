@@ -21,7 +21,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Allproducts from './pages/allproducts/Allproducts';
 import SareeCases from './pages/sareecases/SareeCases';
-import CyberPunk from './pages/cyberpunkcases/CyberPunk';
+import MarvelCases from './pages/marvelcases/MarvelCases';
 import AbstractCases from './pages/abstractcases/AbstractCases';
 import TravelCases from './pages/travelcases/TravelCases';
 import HippieTrippieCases from './pages/hippietrippiecases/HippieTrippieCases';
@@ -32,6 +32,8 @@ import MusicCases from './pages/musiccases/MusicCases';
 import CarsBikesCases from './pages/carsbikescases/CarsBikesCases';
 import GamingCases from './pages/gamingcases/GamingCases';
 import CustomCases from './pages/customcases/CustomCases';
+import GlassCases from './pages/glasscases/GlassCases';
+
 
 
 
@@ -43,7 +45,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/allproducts" element={<Allproducts />} />
           <Route path="/sareecases" element={<SareeCases />} />
-          <Route path="/cyberpunkcases" element={<CyberPunk />} />
+          <Route path="/marvelcases" element={<MarvelCases />} />
           <Route path="/abstractcases" element={<AbstractCases />} />
           <Route path="/travelcases" element={<TravelCases />} />
           <Route path="/hippietrippiecases" element={<HippieTrippieCases />} />
@@ -54,6 +56,8 @@ function App() {
           <Route path='/carsbikescases' element={<CarsBikesCases />}/>
           <Route path='/customcases' element={<CustomCases/>}/> 
           <Route path='/gamingcases' element={<GamingCases />}/>
+          <Route path='/glasscases' element={<GlassCases />}/>
+
           
           <Route path="/order" element={
             <ProtectedRoute>

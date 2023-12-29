@@ -9,10 +9,7 @@ import { toast } from 'react-toastify';
 import { addDoc, collection } from 'firebase/firestore';
 import { fireDB } from '../../fireabase/FirebaseConfig';
 
-
 function Cart() {
-
-  
   const context = useContext(myContext);
   const { mode } = context;
 
@@ -30,7 +27,7 @@ function Cart() {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
-  const [totalAmout, setTotalAmount] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
 
   useEffect(() => {
     let temp = 0;
@@ -41,15 +38,12 @@ function Cart() {
   }, [cartItems]);
 
   const shipping = parseInt(100);
-  const grandTotal = shipping + totalAmout;
-
+  const grandTotal = shipping + totalAmount;
 
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [pincode, setPincode] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-
-
   const handleBuyNow = async () => {
     // Check if the user is logged in
     const user = JSON.parse(localStorage.getItem('user'));
@@ -57,7 +51,7 @@ function Cart() {
       // If not logged in, redirect to signup
       return navigate('/signup');
     }
-
+  
     // Continue with the payment process specific to your application
     const options = {
       key: 'rzp_test_FpqyKexGASHX8t',
@@ -70,9 +64,9 @@ function Cart() {
       handler: function (response) {
         console.log(response);
         toast.success('Payment Successful');
-
+  
         const paymentId = response.razorpay_payment_id;
-
+  
         const orderInfo = {
           cartItems,
           addressInfo: {
@@ -80,7 +74,6 @@ function Cart() {
             address,
             pincode,
             phoneNumber,
-      
             date: new Date().toLocaleString('en-US', {
               month: 'short',
               day: '2-digit',
@@ -96,7 +89,7 @@ function Cart() {
           userid: user.user.uid,
           paymentId,
         };
-
+  
         try {
           const orderRef = collection(fireDB, 'order');
           addDoc(orderRef, orderInfo);
@@ -108,24 +101,28 @@ function Cart() {
         color: '#3399cc',
       },
     };
-
+  
     // Create a new instance of Razorpay with the provided options
     const pay = new window.Razorpay(options);
-
+  
     // Open the Razorpay payment dialog
     pay.open();
   };
-
+  
   return (
-    <Layout>
-      <div className="h-screen bg-gray-100 pt-5 mb-[60%] md:pb-16 " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '' }}>
+    <Layout showFooter={false}>
+      <div className="h-screen bg-gray-100 pt-5 mb-[60%] md:pb-16" style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '' }}>
         <h1 className="mb-10 text-center text-2xl font-bold">Cart Items</h1>
-        <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 ">
-          <div className="rounded-lg md:w-2/3 ">
+        <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+          <div className="rounded-lg w-full mb-6 md:w-2/3 md:max-w-none">
             {cartItems.map((item, index) => {
-              const { title, price,discountprice, description, imageUrl } = item;
+              const { title, discountprice, description, imageUrl } = item;
               return (
-                <div className="justify-between mb-6 rounded-lg border drop-shadow-xl bg-white p-6 sm:flex sm:justify-start" style={{ backgroundColor: mode === 'dark' ? 'rgb(32 33 34)' : '', color: mode === 'dark' ? 'white' : '' }} key={index}>
+                <div
+                  className="mb-6 rounded-lg border drop-shadow-xl bg-white p-6 sm:flex sm:justify-start"
+                  style={{ backgroundColor: mode === 'dark' ? 'rgb(32 33 34)' : '', color: mode === 'dark' ? 'white' : '' }}
+                  key={index}
+                >
                   <img src={imageUrl} alt="product-image" className="w-full rounded-lg sm:w-40" />
                   <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                     <div className="mt-5 sm:mt-0">
@@ -144,10 +141,10 @@ function Cart() {
             })}
           </div>
 
-          <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3" style={{ backgroundColor: mode === 'dark' ? 'rgb(32 33 34)' : '', color: mode === 'dark' ? 'white' : '' }}>
+          <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md w-full md:mt-0 md:w-1/2 lg:w-1/3 xl:w-1/4">
             <div className="mb-2 flex justify-between">
               <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>Subtotal</p>
-              <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{totalAmout}</p>
+              <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{totalAmount}</p>
             </div>
             <div className="flex justify-between">
               <p className="text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>Shipping</p>
@@ -160,18 +157,18 @@ function Cart() {
                 <p className="mb-1 text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{grandTotal}</p>
               </div>
             </div>
+
             <Modal
-        
-        name={name}
-        address={address}
-        pincode={pincode}
-        phoneNumber={phoneNumber}
-        setName={setName}
-        setAddress={setAddress}
-        setPincode={setPincode}
-        setPhoneNumber={setPhoneNumber}
-        buyNow={handleBuyNow}
-      />
+              name={name}
+              address={address}
+              pincode={pincode}
+              phoneNumber={phoneNumber}
+              setName={setName}
+              setAddress={setAddress}
+              setPincode={setPincode}
+              setPhoneNumber={setPhoneNumber}
+              buyNow={handleBuyNow}
+            />
           </div>
         </div>
       </div>
@@ -180,3 +177,6 @@ function Cart() {
 }
 
 export default Cart;
+
+
+

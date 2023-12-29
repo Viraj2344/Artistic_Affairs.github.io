@@ -1,4 +1,5 @@
 import React from 'react';
+import './imagegrid.css'
 
 const ImageGrid = () => {
   const mediaItems = [
@@ -9,15 +10,16 @@ const ImageGrid = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-5 p-7">
+    <div className="overflow-x-auto flex gap-5 p-7 scrollbar-hidden">
       {mediaItems.map((media, index) => (
         <a
           key={index}
           href={media.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative overflow-hidden bg-gray-100 hover:bg-gray-300 rounded-2xl transition duration-300 transform hover:scale-105 md:col-span-1"
-          style={{ height: '100%', position: 'relative', display: 'block' }}
+          className="group relative flex-shrink-0 overflow-hidden bg-gray-100 hover:bg-gray-300 rounded-2xl transition duration-300 transform hover:scale-105"
+          style={{ fontFamily:'Lilita One', minWidth: '200px', maxWidth: '160px', height: '240px' /* Set a suitable height for your items */ }}
+
         >
           {media.type === 'video' ? (
             <video
@@ -30,10 +32,10 @@ const ImageGrid = () => {
             <img
               src={media.src}
               alt={`Image ${index + 1}`}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover shadow-black rounded-2xl"
             />
           )}
-          <div className="absolute bottom-0 left-0 p-4 bg-black bg-opacity-50 text-white font-bold text-lg">
+          <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-r from-gray-700 to-gray-900		 bg-opacity-50 text-white font-bold text-lg">
             {media.text}
           </div>
         </a>

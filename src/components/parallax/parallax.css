@@ -1,32 +1,32 @@
-/* src/components/ZoomParallax.css */
+/* SingleImage.css */
 
-.parallax-container {
-    position: relative;
-    /* width: 100%; */
-    height: 400px;
-    overflow: hidden;
-    background-color: #FCF3E6;
+.single-image-container {
+display: block;
+margin-left:auto ;
+margin-right: auto;
+width: 100%;
 
-  }
+  background-color: #000000; /* Set the background color as needed */
+  border-radius: 5px;
   
-  .parallax-image {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: zoom 10s infinite alternate;
-    /* width: 100%; */
-    height: 500px;
-    padding: 50px;
-    object-fit: cover;
-  }
-  
-  @keyframes zoom {
-    0% {
-      transform: translate(-50%, ) scale(1);
-    }
-    100% {
-      transform: translate(-50%, ) scale(1.5);
-    }
-  }
-  
+}
+
+.image-wrapper {
+  display: block;
+margin-left:auto ;
+margin-right: auto;
+  width: 100%;
+  max-width: 100%; /* Set the maximum width of the image wrapper */
+}
+
+.centered-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left:auto ;
+  margin-right: auto;
+  max-height: 100%; /* Ensure the image doesn't exceed the container's height */
+
+
+}
+

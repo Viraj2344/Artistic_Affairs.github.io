@@ -5,6 +5,7 @@ import Layout from '../../components/layout/Layout';
 import myContext from '../../context/data/myContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
+import ImageGrid from '../../components/imagegrid/Imagegrid';
 
 function CricketCases() {
   const context = useContext(myContext);
@@ -43,15 +44,18 @@ function CricketCases() {
   return (
     <Layout>
       <section className={`text-gray-600 body-font ${mode === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
-        <div className="container px-5 py-8 md:py-16 mx-auto">
-          <div className="lg:w-1/2 w-auto mb-6 lg:mb-10">
+        <div className="container px-5 py-8 md:py-16 mx-auto"
+        style={{ fontFamily:'Lilita One' }}>
+           <div className=" w-auto mb-6 lg:mb-10">
             <h1
-              className={`sm:text-3xl text-2xl font-medium title-font mb-2 ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}
+              className={`lg:text-6xl text-3xl text-center font-bold title-font mb-2  ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}
+style={{ fontFamily:'Lilita One' }}
             >
               CRICKET CASES
             </h1>
-            <div className={`h-1 w-20 ${mode === 'dark' ? 'bg-pink-600' : 'bg-pink-300'} rounded`}></div>
+         
           </div>
+<ImageGrid />
 
           <div className="flex flex-wrap -m-4">
             {Filternew(product, constantCategory).map((item, index) => {
@@ -59,11 +63,11 @@ function CricketCases() {
               return (
                 <div
                   key={index}
-                  className={`w-full sm:w-1/2 md:w-1/3 lg:w-1/3 xl:w-1/3 p-4`}
+                  className={` w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-1/3 p-4 `}
                   onClick={() => (window.location.href = `/productinfo/${id}`)}
                 >
                   <div
-                    className={`h-full border-2 hover:shadow-lg transition-shadow duration-300 ease-in-out border-gray-200 border-opacity-60 overflow-hidden ${mode === 'dark' ? 'dark-card' : ''}`}
+                    className={`h-full border-2 shadow-lg transition-shadow duration-300 rounded-xl  ease-in-out border-black-500 border-opacity-60  overflow-hidden ${mode === 'dark' ? 'dark-card' : ''}`}
                   >
                     <div className="flex justify-center cursor-pointer">
                       <img

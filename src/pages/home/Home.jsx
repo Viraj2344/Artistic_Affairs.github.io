@@ -21,11 +21,12 @@ function Home() {
     <Layout>
       
       <HeroSection />
-      <SlidingText />
+
       <ImageGrid />
-      <ProductCard />
+      <SlidingText />
       {/* <Track /> */}
       <Parallax />
+      <ProductCard />
      <BigText />
      <SingleImage />
       <ProductSpecificationsTable />

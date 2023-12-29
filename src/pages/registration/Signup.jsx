@@ -45,8 +45,11 @@ function Signup() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+    <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700">
       {loading && <Loader />}
+      <div className="text-center">
+        <h1 className="text-5xl font-extrabold text-white mb-4">Artistic Affairs</h1>
+      </div>
       <div className="bg-white w-full max-w-md p-8 rounded-lg shadow-lg">
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-gray-800 mb-4">Signup</h1>
@@ -83,7 +86,7 @@ function Signup() {
         <div className="mb-6">
           <button
             onClick={signup}
-            className="w-full bg-purple-500 text-white font-bold py-2 rounded-lg hover:bg-purple-600 transition duration-300"
+            className="w-full bg-purple-500 text-white font-bold py-2 rounded-lg hover:bg-gray-600 transition duration-300"
           >
             Signup
           </button>

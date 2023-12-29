@@ -1,9 +1,17 @@
 .image{
     margin: auto;
-    height: 600px;
+    height: 550px;
     object-fit: cover;
-    background-color: black;
-    padding: 30px;
-    width: 100%;
+    border-radius: 3%;
+    padding: 0px;
+    width: 95%;
+
     /* height: fit-content; */
 }
+.slick-prev {
+display: none !important; 
+  }
+  
+.slick-next {
+display: none !important;
+  }

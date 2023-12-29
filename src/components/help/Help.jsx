@@ -4,10 +4,11 @@ import './Help.css'; // Create a CSS file for styling
 
 function HelpSection() {
   return (
-    <section className="help-section">
-      <div className="help-content">
-        <h2>We are here to help you!!</h2>
-        <p>
+    <section className="help-section bg-gradient-to-r from-gray-700 to-gray-900		">
+      <div className="help-content"
+      >
+        <h2 style={{ fontFamily:'Lilita One' }}>We are here to help you!!</h2>
+        <p >
           Check out the most common questions our customers asked. Still have
           questions? <span className="contact-link">Contact us</span>.
         </p>

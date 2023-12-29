@@ -11,9 +11,9 @@ import { fireDB } from '../../fireabase/FirebaseConfig';
 function ProductInfo() {
     const context = useContext(myContext);
     const { loading, setLoading } = context;
-    
+
     const [product, setProduct] = useState(null);
-    const [selectedOption, setSelectedOption] = useState(''); // New state for the selected dropdown option
+
     const params = useParams();
 
     const getProductData = async () => {
@@ -36,9 +36,13 @@ function ProductInfo() {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart);
 
+    const handlePhoneModelChange = (event) => {
+        const selectedModel = event.target.value;
+        dispatch(setSelectedPhoneModel(selectedModel));
+      };
+
     const addCart = () => {
-        // Pass the selected option along with the product to addToCart
-        dispatch(addToCart({ ...product, selectedOption }));
+        dispatch(addToCart({ ...product }));
         toast.success('Added to cart');
     };
 
@@ -58,11 +62,13 @@ function ProductInfo() {
                                 className="lg:w-1/2 w-full lg:h-full object-cover object-center rounded"
                                 src={product.imageUrl}
                             />
-                            <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
+                            <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0"
+                            style={{ fontFamily:'Lilita One' }}>
                                 <h2 className="text-sm title-font text-gray-600 tracking-widest">
                                     ARTISTIC AFFAIRS
                                 </h2>
-                                <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+                                <h1 className="text-gray-900 text-3xl title-font font-medium mb-1"
+                                style={{ fontFamily:'Lilita One' }}>
                                     {product.title}
                                 </h1>
                                 <p className="leading-relaxed border-b-2 mb-5 pb-5">
@@ -82,8 +88,7 @@ function ProductInfo() {
                   
                                  {/* Dropdown code */}
                                  <select 
-    value={selectedOption}
-    onChange={(e) => setSelectedOption(e.target.value)}
+         onChange={(e) => dispatch(setSelectedPhoneModel(e.target.value))}
     className="mr-auto p-2 border border-gray-300 rounded-md"
 >
     <option value="" disabled>Select a phone model</option>

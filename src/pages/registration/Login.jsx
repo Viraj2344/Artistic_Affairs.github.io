@@ -39,8 +39,13 @@ function Login() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+    
+    <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700">
+       <div className="text-center">
+        <h1 className="text-5xl font-extrabold text-white mb-4">Artistic Affairs</h1>
+      </div>
       {loading && <Loader />}
+     
       <div className="bg-white w-full max-w-md p-8 rounded-lg shadow-lg">
         <div className="text-center">
           <h1 className="text-3xl font-extrabold text-gray-800 mb-4">Login</h1>
@@ -51,7 +56,7 @@ function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             name="email"
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-purple-500 transition duration-300"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-gray-500 transition duration-300"
             placeholder="Email"
           />
         </div>
@@ -60,14 +65,14 @@ function Login() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-purple-500 transition duration-300"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-gray-500 transition duration-300"
             placeholder="Password"
           />
         </div>
         <div className="mb-6">
           <button
             onClick={login}
-            className="w-full bg-purple-500 text-white font-bold py-2 rounded-lg hover:bg-purple-600 transition duration-300"
+            className="w-full bg-purple-500 text-white font-bold py-2 rounded-lg hover:bg-gray-600 transition duration-300"
           >
             Login
           </button>

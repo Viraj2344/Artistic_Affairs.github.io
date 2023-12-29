@@ -19,15 +19,16 @@ const ProductSpecificationsTable = ({ mode }) => {
   ];
 
   return (
-    <div className="container mx-auto p-4 text-center">
-      <h1 className={`text-2xl font-bold mb-2 ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+    <div className="container 	 text-white my-3 rounded-xl mx-auto p-4 text-center">
+      <h1 className={`text-3xl 	 text-white font-bold mb-2 ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}
+      style={{ fontFamily:'Lilita One' }}>
         Product Specifications
       </h1>
-      <h5 className="text-sm mb-4 text-gray-600">
+      <h5 className="text-sm mb-4 ">
         Information regarding various products available on the website
       </h5>
-      <div className={`overflow-x-auto ${mode === 'dark' ? 'bg-black' : ''}`}>
-        <table className="w-full rounded-lg" style={tableStyle}>
+      <div className={`overflow-x-auto		 text-white ${mode === 'dark' ? 'bg-gradient-to-r from-gray-700 to-gray-900		' : ''}`}>
+        <table className="w-full  rounded-lg " style={{ borderRadius:'36px' , ...tableStyle }}>
           <colgroup>
             <col style={{ width: '33%' }} />
             <col style={{ width: '33%' }} />
@@ -43,9 +44,9 @@ const ProductSpecificationsTable = ({ mode }) => {
           <tbody>
             {titles.map((title, index) => (
               <tr key={index}>
-                <td className="py-2 px-2 md:px-4 border-b font-bold">{title}</td>
-                <td className="py-2 px-2 md:px-4 border-b">{specifications[index]}</td>
-                <td className="py-2 px-2 md:px-4 border-b">Additional details go here</td>
+                <td className="py-2 px-2 md:px-4 bg-gradient-to-r from-gray-700 to-gray-700		 text-white border-b font-bold">{title}</td>
+                <td className="py-2 px-2 md:px-4 bg-gradient-to-r from-gray-700 to-gray-700		 text-white border-b">{specifications[index]}</td>
+                <td className="py-2 px-2 md:px-4 bg-gradient-to-r from-gray-700 to-gray-700		 text-white border-b">Additional details go here</td>
               </tr>
             ))}
           </tbody>

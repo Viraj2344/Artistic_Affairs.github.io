@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/cartSlice';
 import ImageGrid from '../../components/imagegrid/Imagegrid';
 
-function GamingCases() {
+function CyberPunk() {
   const context = useContext(myContext);
   const {
     mode,
@@ -23,16 +23,17 @@ function GamingCases() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cart);
   console.log(cartItems);
-  const constantCategory = "Gaming Cases"; // Set your constant category here
-
-  const Filternew = (productList, category) => {
-    return category ? productList.filter((obj) => obj.category.toLowerCase() === category.toLowerCase()) : productList;
-  };
 
   const addCart = (product) => {
     dispatch(addToCart(product));
     toast.success('Added to cart');
   };
+  const constantCategory = "Marvel Cases"; // Set your constant category here
+
+  const Filternew = (productList, category) => {
+    return category ? productList.filter((obj) => obj.category.toLowerCase() === category.toLowerCase()) : productList;
+  };
+
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -48,19 +49,23 @@ function GamingCases() {
       <section className={`text-gray-600 body-font ${mode === 'dark' ? 'bg-gray-800' : 'bg-white'}`}>
         <div className="container px-5 py-8 md:py-16 mx-auto"
         style={{ fontFamily:'Lilita One' }}>
-           <div className=" w-auto mb-6 lg:mb-10">
+          <div className=" w-auto mb-6 lg:mb-10">
             <h1
-              className={`lg:text-6xl text-3xl text-center font-bold title-font mb-2  ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}
-style={{ fontFamily:'Lilita One' }}
+              className={`lg:text-6xl text-3xl text-center font-bold title-font mb-2   ${mode === 'dark' ? 'text-white' : 'text-gray-900'}`}
+              style={{ fontFamily:'Lilita One' }}
             >
-              GAMING CASES
+              MARVEL CASES
             </h1>
          
           </div>
 <ImageGrid />
 
+
+          
+
+
           <div className="flex flex-wrap -m-4">
-             {Filternew(product, constantCategory).map((item, index) => {
+            {Filternew(product, constantCategory).map((item, index) => {
               const { title, price, imageUrl, id, category, discountprice } = item;
                 return (
                   <div
@@ -100,4 +105,4 @@ style={{ fontFamily:'Lilita One' }}
   );
 }
 
-export default GamingCases;
+export default CyberPunk;

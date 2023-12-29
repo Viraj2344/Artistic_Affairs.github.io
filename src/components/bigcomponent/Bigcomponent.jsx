@@ -3,11 +3,12 @@ import './BigText.css'; // Don't forget to create the corresponding CSS file for
 
 const BigText = () => {
   return (
-    <div className="big-text-container">
+    
+    <div className="big-text-container ">
       <div className="big-text">
-        <span>100%</span>
+        <span style={{ fontFamily:'Lilita One' }}>100%</span>
       </div>
-      <div className="small-text">
+      <div className="small-text text-white">
         <span>Premium Print Guarantee</span>
       </div>
     </div>

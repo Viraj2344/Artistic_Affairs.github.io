@@ -2,14 +2,14 @@ import React from 'react'
 import Navbar from '../navbar/Navbar'
 import Footer from '../footer/Footer'
 
-function Layout({children}) {
+function Layout({children, showFooter = true }) {
   return (
     <div>
         <Navbar/>
-        <div className="content">
+        <div className="content bg-gradient-to-r from-gray-700 to-gray-900		">
             {children}
         </div>
-        <Footer/>
+      {showFooter &&  < Footer/>}
     </div>
   )
 }

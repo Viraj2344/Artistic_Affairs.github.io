@@ -1,7 +1,7 @@
     /* HelpSection.css */
 
 .help-section {
-    background-color: #f9f9f9; /* Set the background color as needed */
+
     padding: 50px 0; /* Adjust the padding as needed */
     text-align: center;
   }
@@ -15,14 +15,14 @@
     font-family: 'Arial', sans-serif; /* Set the font family as needed */
     font-size: 2rem; /* Set the font size as needed */
     font-weight: bold; /* Make the text bold */
-    color: #333; /* Set the text color */
+    color: #ffffff; /* Set the text color */
     margin-bottom: 20px; /* Add some margin below the heading */
   }
   
   .help-content p {
     font-family: 'Arial', sans-serif; /* Set the font family as needed */
     font-size: 1rem; /* Set the font size as needed */
-    color: #555; /* Set the text color */
+    color: #ffffff; /* Set the text color */
   }
   
   .contact-link {

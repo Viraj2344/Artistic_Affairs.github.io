@@ -7,7 +7,7 @@ import { FaUser, FaCartPlus } from 'react-icons/fa';
 import { AiFillShopping, AiFillPlusCircle, AiFillDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
-function DashboardTab() {
+function DashboardTab({}) {
   const context = useContext(myContext);
   const { mode, product, edithandle, deleteProduct, order, user } = context;
 
@@ -27,12 +27,12 @@ function DashboardTab() {
 
   return (
     <>
-      <div className="container mx-auto mt-8">
+      <div className="container mx-auto " >
         <div className="tab container mx-auto ">
           <Tabs defaultIndex={0} className=" " >
-            <TabList className="md:flex md:space-x-8 bg- grid grid-cols-3 text-center gap-4 md:justify-center mb-10 ">
+            <TabList className="md:flex md:space-x-8 mb-6 grid grid-cols-3 text-center gap-4 md:justify-center  ">
               <Tab>
-                <button type="button" className="tab-button">
+                <button type="button" className="tab-button text-white">
                   <div className="tab-icon">
                     <MdOutlineProductionQuantityLimits />
                   </div>
@@ -40,7 +40,7 @@ function DashboardTab() {
                 </button>
               </Tab>
               <Tab>
-                <button type="button" className="tab-button">
+                <button type="button" className="tab-button text-white">
                   <div className="tab-icon">
                     <AiFillShopping />
                   </div>
@@ -48,7 +48,7 @@ function DashboardTab() {
                 </button>
               </Tab>
               <Tab>
-                <button type="button" className="tab-button">
+                <button type="button" className="tab-button text-white">
                   <div className="tab-icon">
                     <FaUser />
                   </div>
@@ -59,7 +59,7 @@ function DashboardTab() {
             {/* product  */}
             <TabPanel>
               <div className="px-4 md:px-0 mb-16">
-                <h1 className="text-center mb-5 text-3xl font-semibold underline" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                <h1 className="text-center text-white mb-5 text-3xl font-semibold " style={{ color: mode === 'dark' ? 'white' : '' }}>
                   Product Details
                 </h1>
                 <div className="flex justify-end">
@@ -69,13 +69,13 @@ function DashboardTab() {
                     className="add-button"
                     style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '' }}
                   >
-                    <div className="flex gap-2 items-center">
+                    <div className="flex gap-2 items-center text-white">
                       Add Product <FaCartPlus size={20} />
                     </div>
                   </button>
                 </div>
                 <div className="relative overflow-x-auto">
-                  <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <table className="w-full text-sm   text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs border border-gray-600 text-black uppercase bg-gray-200">
                       <tr>
                         <th scope="col" className="px-6 py-3">
@@ -155,7 +155,7 @@ function DashboardTab() {
 
             <TabPanel>
               <div className="relative overflow-x-auto mb-16">
-                <h1 className="text-center mb-5 text-3xl font-semibold underline" style={{ color: mode === 'dark' ? 'white' : '' }}>
+                <h1 className="text-center mb-5 text-3xl text-white font-semibold " style={{ color: mode === 'dark' ? 'white' : '' }}>
                   Order Details
                 </h1>
                 {order.map((allorder, index) => {
@@ -175,13 +175,14 @@ function DashboardTab() {
                                             <th scope="col" className="px-6 py-3">
                                                 Price
                                             </th>
+                                            
                                             <th scope="col" className="px-6 py-3">
                                                 Category
                                             </th>
                                             <th scope="col" className="px-6 py-3">
                                                 Name
                                             </th>
-                                       
+                                            
                                             <th scope="col" className="px-6 py-3">
                                                 Address
                                             </th>
@@ -220,6 +221,7 @@ function DashboardTab() {
                                             <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
                                                 ₹{price}
                                             </td>
+                                           
                                             <td className="px-6 py-4 text-black " style={{ color: mode === 'dark' ? 'white' : '' }}>
                                                {category}
                                             </td>
@@ -257,7 +259,7 @@ function DashboardTab() {
                         <TabPanel>
                             {/* <User addressInfo={addressInfo} setAddressInfo={setAddressInfo} setLoading={setLoading} /> */}
                             <div className="relative overflow-x-auto mb-10">
-                                <h1 className=' text-center mb-5 text-3xl font-semibold underline' style={{ color: mode === 'dark' ? 'white' : '' }}>User Details</h1>
+                                <h1 className=' text-center mb-5 text-white text-3xl font-semibold ' style={{ color: mode === 'dark' ? 'white' : '' }}>User Details</h1>
                                 <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                     <thead className="text-xs text-black uppercase bg-gray-200 " style={{ backgroundColor: mode === 'dark' ? 'rgb(46 49 55)' : '', color: mode === 'dark' ? 'white' : '', }} >
                                         <tr>

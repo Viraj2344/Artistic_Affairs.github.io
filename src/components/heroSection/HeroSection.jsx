@@ -1,3 +1,5 @@
+// HeroSection.js
+
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -6,27 +8,39 @@ import './herosection.css';
 
 function HeroSection() {
   const images = [
-    'https://slickstiles.com/cdn/shop/files/Screenshot_56.png?v=1697109225&width=1800',
-    'https://slickstiles.com/cdn/shop/files/harry_potter_mockup_1_b3e64515-985d-4113-ada0-6e54f268e88f.jpg?v=1698595271&width=2400',
+    {
+      desktop: 'https://slickstiles.com/cdn/shop/files/Celebrate_Love_1080x1080_-_Copy.jpg?v=1701368375&width=800',
+      mobile: 'https://slickstiles.com/cdn/shop/files/Celebrate_Love_1080x1080_8e60ff1b-8583-4155-bf6e-304d41c37dae.jpg?v=1701367568&width=800',
+    },
+    {
+      desktop: 'https://slickstiles.com/cdn/shop/files/harry_potter_mockup_1_b3e64515-985d-4113-ada0-6e54f268e88f.jpg?v=1698595271&width=2400',
+      mobile: 'https://slickstiles.com/cdn/shop/files/harry_potter_mockup_1_b3e64515-985d-4113-ada0-6e54f268e88f.jpg?v=1698595271&width=2400',
+    },
     // Add more image URLs as needed
   ];
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true, // Enable automatic sliding
-    autoplaySpeed: 3000, // Set the autoplay speed in milliseconds (e.g., 3000ms or 3s)
+    fade: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    cssEase: 'linear', // Add this property for linear fade transition
   };
 
   return (
     <div>
       <Slider {...settings}>
         {images.map((image, index) => (
-          <div key={index}>
-            <img className='image' src={image} alt={`Slide ${index + 1}`} />
+          <div className='bg-gradient-to-r from-gray-700 to-gray-900' key={index}>
+            <img
+              className='image custom-cursor'
+              src={window.innerWidth <= 768 ? image.mobile : image.desktop}
+              alt={`Slide ${index + 1}`}
+            />
           </div>
         ))}
       </Slider>
